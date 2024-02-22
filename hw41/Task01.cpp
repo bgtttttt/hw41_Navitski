@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #define n 3
 
@@ -6,6 +7,7 @@ using namespace std;
 
 bool isSymmetrical(int matrix[n][n]);
 bool isAntisymmetrical(int matrix[n][n]);
+string matrToString(int matrix[n][n]);
 
 int main() {
 	int matr1[n][n] = {
@@ -26,6 +28,9 @@ int main() {
 		{3,-4,5}
 	};
 	string msg3 = isAntisymmetrical(matr3) ? "is" : "isn't";
+	cout << "Matrix 1:\n" << matrToString(matr1)
+		<< "Matrix 2:\n" << matrToString(matr2)
+		<< "Matrix 3:\n" << matrToString(matr3);
 	cout << "Matrix 1 " << msg1 << " symmetric\n";
 	cout << "Matrix 2 " << msg2 << " symmetric\n";
 	cout << "Matrix 3 " << msg3 << " antisymmetric\n";
@@ -51,4 +56,14 @@ bool isAntisymmetrical(int matrix[n][n]) {
 		}
 	}
 	return true;
+}
+string matrToString(int matrix[n][n]) {
+	string s = "";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			s = s + to_string(matrix[i][j]) + "\t";
+		}
+		s += "\n";
+	}
+	return s;
 }
